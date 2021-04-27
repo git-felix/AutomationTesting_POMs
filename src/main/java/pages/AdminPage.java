@@ -7,12 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
-import java.time.Duration;
 
 public class AdminPage {
     // private data-members
     private WebDriver driver;
-    private By checkboxAccessModeSOAP = By.id("accessMode1");
+    private By checkboxAccessModeSOAP = By.id("accessMode1");   // for later usage
     private By checkboxAccessModeRESTxml = By.id("accessMode2");
     private By inputWebServiceEndpointREST = By.id("restEndpoint");
     private By initialBalance = By.id("initialBalance");

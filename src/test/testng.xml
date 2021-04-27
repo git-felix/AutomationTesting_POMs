@@ -7,7 +7,6 @@
             <class name="login.TestLoginPage" />
             <class name="contacts.TestContactPage" />
             <class name="admin.TestAdminPage" />
-            <class name="contacts.TestContactPage" />
         </classes>
     </test>
 
