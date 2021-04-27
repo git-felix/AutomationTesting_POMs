@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="Regression1" parallel="classes" thread-count="2" >
+        <classes>
+            <class name="home.TestHomePage" />
+            <class name="login.TestLoginPage" />
+            <class name="contacts.TestContactPage" />
+            <class name="admin.TestAdminPage" />
+            <class name="contacts.TestContactPage" />
+        </classes>
+    </test>
+
+    <!--test name="BaseTest" >
+        <classes>
+            <class name="base.BaseTests" />
+        </classes>
+    </test-->
+
+</suite>
