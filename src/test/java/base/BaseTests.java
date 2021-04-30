@@ -26,10 +26,10 @@ public class BaseTests {
 
     @BeforeClass
     public void initializeAll() {
-
         System.setProperty("webdriver.chrome.driver", "src/drivers/chromedriver.exe");
         driver = new EventFiringWebDriver(new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
+        driver.manage().window().maximize();
         goHome();
     }
 

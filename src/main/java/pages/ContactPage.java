@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import com.google.common.base.Function;
 
 public class ContactPage {
-
+    // private data-members
     private WebDriver driver;
     private By pageTitle = By.className("title");
     private By customerName = By.id("name");
@@ -21,7 +21,13 @@ public class ContactPage {
     private By customerPhone = By.id("phone");
     private By customerMessage = By.id("message");
     private By sendRequestBtn = By.xpath("//input[@value='Send to Customer Care']");
+    // fluent Wait (initialization of wait instance)
+    FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+            .withTimeout(10, TimeUnit.SECONDS)
+            .pollingEvery(1, TimeUnit.SECONDS)
+            .ignoring(NoSuchElementException.class);
 
+    // constructor
     public ContactPage(WebDriver driver) { this.driver = driver; }
 
     public String getCurrentPageURL() {
@@ -29,11 +35,6 @@ public class ContactPage {
     }
 
     public String getPageTitle() {
-        // Fluent Wait (initialization of wait instance)
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-                .withTimeout(10, TimeUnit.SECONDS)
-                .pollingEvery(1, TimeUnit.SECONDS)
-                .ignoring(NoSuchElementException.class);
         // Fluent Wait (usage for getting the page title that may appear not immediately)
         WebElement pageTitleText = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {

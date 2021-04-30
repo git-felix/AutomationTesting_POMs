@@ -5,16 +5,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ribbon.RibbonBar;
 
 import java.util.List;
 
 public class HomePage {
+    // TODO: create a RibbonBar class for all WebElements to be declared there
+
     // private data-members
     private WebDriver driver;
     private By buttonsList = By.xpath("//ul[@class='button']");
     private By buttons = By.tagName("li");
     private By leftMenuItems = By.xpath("//ul[@class='leftmenu']");
 
+    private By servicesATM = By.className("captionone");
+    private By servicesOnline = By.className("captiontwo");
+
+    public boolean servicesSectionIsDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        boolean displayServicesATM = (wait.until(ExpectedConditions.visibilityOfElementLocated(servicesATM))).isDisplayed();
+        boolean displayServicesOnline = (wait.until(ExpectedConditions.visibilityOfElementLocated(servicesATM))).isDisplayed();
+        return (displayServicesATM && displayServicesOnline);
+    }
 
     // Constructor (web-driver initialization)
     public HomePage(WebDriver driver) { this.driver = driver; }

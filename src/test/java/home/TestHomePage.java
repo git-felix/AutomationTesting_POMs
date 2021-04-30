@@ -16,6 +16,11 @@ public class TestHomePage extends BaseTests {
         );
     }
 
+    @Test
+    public void testSectionsDisplay() {
+        assertTrue(homePage.servicesSectionIsDisplayed());
+        // TODO: assert all sections' items are displayed and clickable
+    }
 
 
 }
