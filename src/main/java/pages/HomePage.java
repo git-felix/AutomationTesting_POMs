@@ -21,12 +21,10 @@ public class HomePage {
     private By servicesATM = By.className("captionone");
     private By servicesOnline = By.className("captiontwo");
 
-    public boolean servicesSectionIsDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        boolean displayServicesATM = (wait.until(ExpectedConditions.visibilityOfElementLocated(servicesATM))).isDisplayed();
-        boolean displayServicesOnline = (wait.until(ExpectedConditions.visibilityOfElementLocated(servicesATM))).isDisplayed();
-        return (displayServicesATM && displayServicesOnline);
-    }
+    private By ATMServicesList = By.xpath("//ul[@class='services']//li");
+    private By OnlineServicesList = By.xpath("//ul[@class='servicestwo']//li");
+
+
 
     // Constructor (web-driver initialization)
     public HomePage(WebDriver driver) { this.driver = driver; }
@@ -36,6 +34,20 @@ public class HomePage {
         wait.until(ExpectedConditions.urlContains(driver.getCurrentUrl().substring(0, 5)));
 
         return driver.getCurrentUrl();
+    }
+
+    public boolean servicesSectionsAreDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        boolean displayServicesATM = (wait.until(ExpectedConditions.visibilityOfElementLocated(servicesATM))).isDisplayed();
+        boolean displayServicesOnline = (wait.until(ExpectedConditions.visibilityOfElementLocated(servicesOnline))).isDisplayed();
+        return (displayServicesATM && displayServicesOnline);
+    }
+
+    public List<WebElement> getATMServicesElements() {
+        return driver.findElements(ATMServicesList);
+    }
+    public List<WebElement> getOnlineServicesElements() {
+        return driver.findElements(OnlineServicesList);
     }
 
     public ContactPage clickContactButton() {
