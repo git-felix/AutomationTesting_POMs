@@ -21,14 +21,17 @@ public class ContactPage {
     private By customerPhone = By.id("phone");
     private By customerMessage = By.id("message");
     private By sendRequestBtn = By.xpath("//input[@value='Send to Customer Care']");
-    // fluent Wait (initialization of wait instance)
-    FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-            .withTimeout(10, TimeUnit.SECONDS)
-            .pollingEvery(1, TimeUnit.SECONDS)
-            .ignoring(NoSuchElementException.class);
+    // fluent wait (declaration wait instance)
+    FluentWait<WebDriver> wait;
 
     // constructor
-    public ContactPage(WebDriver driver) { this.driver = driver; }
+    public ContactPage(WebDriver driver) {
+        this.driver = driver;
+        wait = new FluentWait<WebDriver>(driver)
+                .withTimeout(10, TimeUnit.SECONDS)
+                .pollingEvery(1, TimeUnit.SECONDS)
+                .ignoring(NoSuchElementException.class);
+    }
 
     public String getCurrentPageURL() {
         return driver.getCurrentUrl();
