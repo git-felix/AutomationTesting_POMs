@@ -3,7 +3,6 @@ package home;
 import base.BaseTests;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import webelements.WebElementsList;
 
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class TestHomePage extends BaseTests {
     @Test
     public void testSectionsDisplay() {
         assertTrue(homePage.servicesSectionsAreDisplayed());
-        // TODO: assert all sections' items are displayed and clickable
     }
 
     @Test

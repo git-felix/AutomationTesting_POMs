@@ -10,14 +10,14 @@ public class TestLoginPage extends BaseTests {
 
     @Test
     public void testBlankLogin() {
-        LoginPage loginPage = homePage.clickLoginButton();
+        LoginPage loginPage = homePage.clickLoginPage();
         String txt = loginPage.pressLoginButton().getText();
         assertEquals(txt, "Please enter a username and password.");
     }
 
     @Test
     public void testFailedLogin() {
-        LoginPage loginPage = homePage.clickLoginButton();
+        LoginPage loginPage = homePage.clickLoginPage();
         loginPage.setUsername("logintest1");
         loginPage.setPassword("pwdtest1");
 
@@ -27,7 +27,7 @@ public class TestLoginPage extends BaseTests {
 
     @Test(enabled = true)  // disabled not to overload screenshots' memory, set 'true' to test
     public void testSuccessfulLogin() {
-        LoginPage loginPage = homePage.clickLoginButton();
+        LoginPage loginPage = homePage.clickLoginPage();
         loginPage.setUsername("admin");
         loginPage.setPassword("admin123");
 

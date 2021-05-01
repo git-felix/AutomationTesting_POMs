@@ -4,6 +4,7 @@ import base.BaseTests;
 import org.testng.annotations.Test;
 import pages.AdminPage;
 import pages.HomePage;
+import ribbon.RibbonBar;
 
 import java.io.IOException;
 
@@ -13,6 +14,8 @@ public class TestAdminPage extends BaseTests {
 
     @Test
     public void createFilledApplication() throws IOException {
+        //adminPageT = RibbonBar.clickMenuPage(adminPageT, "Admin Page");
+
         AdminPage adminPage = homePage.clickAdminPage();
         adminPage.setDataAccessMode();
         adminPage.fillWebServiceEndpointREST("application/xml");

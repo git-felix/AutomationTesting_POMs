@@ -12,7 +12,10 @@ public class LoginPage {
     private By usernameInput = By.xpath("//input[@name='username']");
     private By passwordInput = By.xpath("//input[@name='password']");
     private By loginButton = By.xpath("//input[@type='submit']");
+
+    private By errorTitle = By.xpath("//h1[@class='title']");
     private By errorMessage = By.className("error");
+
 
     // constructor
     public LoginPage(WebDriver driver) { this.driver = driver; }
@@ -24,7 +27,7 @@ public class LoginPage {
         driver.findElement(loginButton).click();
         // as error message gets updated not immediately, we need a waiting condition here
         WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(errorMessage), "password"));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(errorTitle), "Error!"));
 
         return driver.findElement(errorMessage);
     }

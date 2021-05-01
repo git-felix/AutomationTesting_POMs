@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.ui.FluentWait;
-
-import java.io.IOException;
-import java.sql.Time;
-import java.util.concurrent.TimeUnit;
-
 import com.google.common.base.Function;
+import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+
+
+
 
 public class ContactPage {
     // private data-members
